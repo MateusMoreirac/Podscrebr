@@ -27,12 +27,12 @@ export function Hero() {
         <div className="flex flex-col items-center text-center">
           {/* Crown icon with glow */}
           <div className="animate-fade-up mb-2" style={{ animationDelay: '0.1s' }}>
-            <Crown className="w-16 h-16 md:w-20 md:h-20 text-primary neon-text drop-shadow-[0_0_20px_hsl(120_100%_50%/0.6)]" />
+            <Crown className="w-12 h-12 md:w-20 md:h-20 text-primary neon-text drop-shadow-[0_0_20px_hsl(120_100%_50%/0.6)]" />
           </div>
 
           {/* Logo text with street font */}
-          <div className="animate-fade-up" style={{ animationDelay: '0.2s' }}>
-            <h1 className="font-brand text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] tracking-wider neon-text uppercase text-center break-all sm:break-normal">
+          <div className="animate-fade-up w-full" style={{ animationDelay: '0.2s' }}>
+            <h1 className="font-brand text-[13vw] sm:text-7xl md:text-9xl lg:text-[10rem] leading-none tracking-normal sm:tracking-wider neon-text uppercase text-center w-full">
               Podscre
             </h1>
           </div>

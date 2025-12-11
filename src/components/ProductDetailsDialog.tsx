@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Product } from "@/types/product";
-import { ShoppingCart, Crown } from "lucide-react";
+import { ShoppingCart, Crown, X } from "lucide-react";
 import { toast } from "sonner";
 
 interface ProductDetailsDialogProps {
@@ -49,10 +49,18 @@ export function ProductDetailsDialog({
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="max-w-3xl overflow-hidden bg-card p-0 border-border">
+            <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-card p-0 border-border">
+                {/* Close Button */}
+                <button
+                    onClick={onClose}
+                    className="absolute right-4 top-4 z-50 rounded-full bg-background/80 p-2 text-foreground backdrop-blur-sm transition-colors hover:bg-background hover:text-primary"
+                >
+                    <X className="h-5 w-5" />
+                </button>
+
                 <div className="grid grid-cols-1 md:grid-cols-2">
                     {/* Image Section */}
-                    <div className="relative aspect-square md:aspect-auto h-full bg-secondary/20">
+                    <div className="relative aspect-square md:aspect-auto h-full max-h-[400px] md:max-h-full bg-secondary/20">
                         <img
                             src={product.imageUrl}
                             alt={product.name}
@@ -74,7 +82,7 @@ export function ProductDetailsDialog({
                                     {product.category}
                                 </span>
                             </div>
-                            <DialogTitle className="text-2xl font-display text-foreground">
+                            <DialogTitle className="text-2xl font-display text-foreground pr-8">
                                 {product.name}
                             </DialogTitle>
                         </DialogHeader>
