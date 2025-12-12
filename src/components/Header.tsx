@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ShoppingCart, Menu, X, Crown } from "lucide-react";
+import { ShoppingCart, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface HeaderProps {
@@ -33,10 +33,11 @@ export function Header({ cartCount, onCartClick }: HeaderProps) {
 
           {/* Logo - Center */}
           <Link to="/" className="flex items-center gap-2 hover-scale group">
-            <Crown className="w-5 h-5 text-primary transition-all duration-300 group-hover:drop-shadow-[0_0_10px_hsl(120_100%_50%/0.6)]" />
-            <span className="font-brand text-2xl text-primary tracking-wider transition-all duration-300 group-hover:neon-text">
-              Podscre
-            </span>
+            <img
+              src="/logo.png"
+              alt="Podscre"
+              className="h-12 w-auto object-contain transition-all duration-300 group-hover:drop-shadow-[0_0_10px_hsl(120_100%_50%/0.6)]"
+            />
           </Link>
 
           {/* Desktop Nav - Right */}

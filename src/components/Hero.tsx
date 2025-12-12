@@ -1,17 +1,23 @@
-import { Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import skaterImage from "@/assets/skater-footer.png";
+import heroBg from "@/assets/hero-bg.jpg";
+import heroBgMobile from "@/assets/hero-bg-mobile.jpg";
 
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Skater Background */}
       <div className="absolute inset-0">
-        <img
-          src={skaterImage}
-          alt=""
-          className="w-full h-full object-cover object-center opacity-50"
-        />
+        <picture>
+          {/* Se você tiver uma versão mobile específica, descomente e adicione aqui:
+           <source media="(max-width: 768px)" srcSet={heroBgMobile} /> 
+           */}
+          <source media="(max-width: 768px)" srcSet={heroBgMobile} />
+          <img
+            src={heroBg}
+            alt=""
+            className="w-full h-full object-cover object-center opacity-50"
+          />
+        </picture>
       </div>
 
       {/* Background gradient overlay */}
@@ -25,16 +31,14 @@ export function Hero() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center text-center">
-          {/* Crown icon with glow */}
-          <div className="animate-fade-up mb-2" style={{ animationDelay: '0.1s' }}>
-            <Crown className="w-12 h-12 md:w-20 md:h-20 text-primary neon-text drop-shadow-[0_0_20px_hsl(120_100%_50%/0.6)]" />
-          </div>
-
-          {/* Logo text with street font */}
-          <div className="animate-fade-up w-full" style={{ animationDelay: '0.2s' }}>
-            <h1 className="font-brand text-[13vw] sm:text-7xl md:text-9xl lg:text-[10rem] leading-none tracking-normal sm:tracking-wider neon-text uppercase text-center w-full">
-              Podscre
-            </h1>
+          {/* Logo image */}
+          <div className="animate-fade-up w-full flex justify-center mb-6" style={{ animationDelay: '0.2s' }}>
+            <h1 className="sr-only">Podscre</h1>
+            <img
+              src="/logo.png"
+              alt="Podscre"
+              className="w-[85vw] max-w-[65rem] h-auto object-contain drop-shadow-[0_0_20px_hsl(120_100%_50%/0.6)]"
+            />
           </div>
 
           {/* Tagline */}
@@ -51,13 +55,6 @@ export function Hero() {
               <a href="#sobre">Conhecer a Marca</a>
             </Button>
           </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator - positioned at the very bottom of section */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-20">
-        <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex items-start justify-center p-2">
-          <div className="w-1.5 h-3 bg-primary rounded-full animate-pulse" />
         </div>
       </div>
     </section>
