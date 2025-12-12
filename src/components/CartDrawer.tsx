@@ -48,6 +48,7 @@ export function CartDrawer({
 *Novo Pedido - Podscre* 👑
 
 *Cliente:* ${data.name}
+*Telefone:* ${data.phone}
 *Endereço:* ${data.address.street}, ${data.address.number}${data.address.complement ? ` - ${data.address.complement}` : ''}
 *Pagamento:* ${data.paymentMethod.toUpperCase()}
 

@@ -13,6 +13,7 @@ interface CheckoutFormProps {
 
 export interface CheckoutData {
     name: string;
+    phone: string;
     address: {
         street: string;
         number: string;
@@ -23,6 +24,7 @@ export interface CheckoutData {
 
 export function CheckoutForm({ onConfirm, onCancel, total }: CheckoutFormProps) {
     const [name, setName] = useState("");
+    const [phone, setPhone] = useState("");
     const [street, setStreet] = useState("");
     const [number, setNumber] = useState("");
     const [complement, setComplement] = useState("");
@@ -32,6 +34,7 @@ export function CheckoutForm({ onConfirm, onCancel, total }: CheckoutFormProps) 
         e.preventDefault();
         onConfirm({
             name,
+            phone,
             address: {
                 street,
                 number,
@@ -53,6 +56,16 @@ export function CheckoutForm({ onConfirm, onCancel, total }: CheckoutFormProps) 
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             placeholder="Ex: João da Silva"
+                            required
+                        />
+                    </div>
+                    <div className="space-y-2">
+                        <Label htmlFor="phone">Telefone / WhatsApp</Label>
+                        <Input
+                            id="phone"
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
+                            placeholder="Ex: (84) 99999-9999"
                             required
                         />
                     </div>
