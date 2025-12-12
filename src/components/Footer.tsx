@@ -1,6 +1,6 @@
 import { Crown, Instagram, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+
 import skaterImage from "@/assets/skater-footer.png";
 
 export function Footer() {
@@ -21,8 +21,11 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Crown className="w-6 h-6 text-primary" />
-              <span className="font-brand text-3xl text-primary tracking-wider">Podscre</span>
+              <img
+                src="/logo.png"
+                alt="Podscre"
+                className="h-20 w-auto object-contain"
+              />
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Streetwear autêntico para quem vive o rolê.
@@ -40,12 +43,7 @@ export function Footer() {
               <FooterLink href="#produtos">Produtos</FooterLink>
               <FooterLink href="#sobre">Sobre</FooterLink>
               <FooterLink href="#contato">Contato</FooterLink>
-              <Link
-                to="/admin"
-                className="text-sm text-muted-foreground/50 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block"
-              >
-                Admin
-              </Link>
+
             </nav>
           </div>
 
