@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/ProductCard";
@@ -14,12 +15,31 @@ const categories = ["Todos", "Camisetas", "Moletons", "Calças", "Bermudas", "Ac
 
 export function ProductsSection({ products, onAddToCart }: ProductsSectionProps) {
   const [selectedCategory, setSelectedCategory] = useState("Todos");
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const selectedProductId = searchParams.get("produto");
+  const selectedProduct = selectedProductId
+    ? products.find((p) => p.id === selectedProductId) || null
+    : null;
 
   const filteredProducts =
     selectedCategory === "Todos"
       ? products
       : products.filter((p) => p.category === selectedCategory);
+
+  const handleProductClick = (product: Product) => {
+    setSearchParams(prev => {
+      prev.set("produto", product.id);
+      return prev;
+    }, { replace: false });
+  };
+
+  const handleCloseDialog = () => {
+    setSearchParams(prev => {
+      prev.delete("produto");
+      return prev;
+    }, { replace: true });
+  };
 
   return (
     <section id="produtos" className="py-20 bg-card">
@@ -62,7 +82,7 @@ export function ProductsSection({ products, onAddToCart }: ProductsSectionProps)
             >
               <ProductCard
                 product={product}
-                onClick={setSelectedProduct}
+                onClick={handleProductClick}
               />
             </div>
           ))}
@@ -77,7 +97,7 @@ export function ProductsSection({ products, onAddToCart }: ProductsSectionProps)
         {/* Product Details Dialog */}
         <ProductDetailsDialog
           isOpen={!!selectedProduct}
-          onClose={() => setSelectedProduct(null)}
+          onClose={handleCloseDialog}
           product={selectedProduct}
           onAddToCart={onAddToCart}
         />
