@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { MessageCircle } from "lucide-react";
 
 interface CheckoutFormProps {
     onConfirm: (data: CheckoutData) => void;
@@ -141,7 +142,8 @@ export function CheckoutForm({ onConfirm, onCancel, total }: CheckoutFormProps) 
                     </span>
                 </div>
                 <Button type="submit" variant="neon" className="w-full" size="lg">
-                    Confirmar Pedido
+                    <MessageCircle className="w-5 h-5 mr-2" />
+                    Finalizar pedido no WhatsApp
                 </Button>
                 <Button
                     type="button"
