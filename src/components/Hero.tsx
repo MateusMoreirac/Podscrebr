@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroBg from "@/assets/hero-bg.jpg";
-import heroBgMobile from "@/assets/hero-bg-mobile.jpg";
+
 
 export function Hero() {
   return (
@@ -11,10 +10,10 @@ export function Hero() {
           {/* Se você tiver uma versão mobile específica, descomente e adicione aqui:
            <source media="(max-width: 768px)" srcSet={heroBgMobile} /> 
            */}
-          <source media="(max-width: 768px)" srcSet={heroBgMobile} />
+          <source media="(max-width: 768px)" srcSet="/hero-mobile.jpg" />
           <img
-            src={heroBg}
-            alt=""
+            src="/hero-desktop.png"
+            alt="Hero Background"
             className="w-full h-full object-cover object-center opacity-50"
           />
         </picture>
